@@ -1,4 +1,9 @@
 //= require angular
+//= require angular-animate
+//= require angular-aria
+//= require angular-material
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require jquery
+//= require bootstrap
 //= require_tree .

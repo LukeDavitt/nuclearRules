@@ -14,7 +14,7 @@
       {{post.title}}
     </span>
     <span>
-      <a href="#/posts/{{$index}}">Comments</a>
+      <a href="#/posts/{{post.id}}">Comments</a>
     </span>
   </span>
 </div>
@@ -35,5 +35,7 @@
     placeholder="Link"
     ng-model="link"></input>
   </div>
-  <button type="submit" class="btn btn-primary">Post</button>
+  <md-content>
+    <md-button class="md-raised md-primary">Post</md-button>
+  </md-content>
 </form>
