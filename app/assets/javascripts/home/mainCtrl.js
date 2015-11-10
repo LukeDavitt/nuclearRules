@@ -1,4 +1,4 @@
-angular.module('solarSystem').controller('MainCtrl', ['$scope','posts',function($scope, posts){
+angular.module('nuclearRules').controller('MainCtrl', ['$scope','posts',function($scope, posts){
   $scope.test = 'Hello world!';
   $scope.posts = posts.posts;
   $scope.posts.push({

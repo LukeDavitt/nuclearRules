@@ -1,4 +1,4 @@
-angular.module('solarSystem', ['ui.router', 'templates', 'ngMaterial'])
+angular.module('nuclearRules', ['ui.router', 'templates', 'ngMaterial'])
 
 
 .config([

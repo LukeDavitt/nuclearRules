@@ -1,4 +1,4 @@
-angular.module('solarSystem').factory('posts', ['$http',function($http){
+angular.module('nuclearRules').factory('posts', ['$http',function($http){
   var o = {
     posts: [],
     getAll: function(){
