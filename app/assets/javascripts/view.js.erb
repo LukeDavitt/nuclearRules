@@ -1,7 +1,8 @@
 "use strict";
 
 var scene, camera, renderer;
-var geometry, material, mesh, group, pointLight, lightDiff = 2, planetGeometry, planetMaterial, planetMesh, planet;
+var geometry, axis, material, mesh, group, pointLight, radIncrement = 0.05, rad = 0, planetGeometry, planetMaterial, planetMesh, planet;
+var planet2, planet3, planet4;
 
 window.onload = function(){
     window.document.body.onload = startThreeJs(); // note removed parentheses
@@ -39,8 +40,27 @@ function init() {
         planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
         planet = new THREE.Object3D();
         planet.add(planetMesh);
-        planetMesh.position.x = 450;
+        //planetMesh.position.x = 450;
+        planetMesh.position.y = 450;
         scene.add( planet );
+
+    planetGeometry = new THREE.SphereGeometry(20);
+        planetMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
+        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
+        planet2 = new THREE.Object3D();
+        planet2.add(planetMesh);
+        //planetMesh.position.x = 450;
+        planetMesh.position.x = 450;
+        scene.add( planet2 );
+    
+    planetGeometry = new THREE.SphereGeometry(20);
+        planetMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
+        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
+        planet3 = new THREE.Object3D();
+        planet3.add(planetMesh);
+        //planetMesh.position.x = 450;
+        planetMesh.position.z = 450;
+        scene.add( planet3 );
 
     var light = new THREE.AmbientLight( 0xe5e5e5 );
     scene.add(light);
@@ -55,7 +75,19 @@ function animate() {
 
     requestAnimationFrame( animate );
     if(mesh)mesh.rotation.y += 0.01;
-    planet.rotation.y += 0.01;
+    //var timer = Date.now() * 0.001;
+
+    // planet.position.x = Math.cos( timer ) * 200;
+    // planet.position.z = Math.sin( timer ) * 200;
+    // planet.rotation.y += (Math.PI * 45 / 180) * 0.02;
+    // planet.rotation.x += (Math.PI * 45 / 180) * 0.02;
+    // planet.rotation.z += (Math.PI * 45 / 180) * 0.02;     
+    // //rad += radIncrement;
+    //planet.rotation.z += 0.001;
+    planet.rotation.z -= 0.02;
+    planet2.rotation.y += 0.02;
+    planet3.rotation.x += 0.02;
+
     renderer.render( scene, camera );
 
 }
