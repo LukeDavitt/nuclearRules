@@ -1,0 +1,40 @@
+var Molecule = function(){
+
+  var radius = 100,
+      segments = 16,
+      rings = 16;
+
+  // instantiate a loader
+  var loader = new THREE.TextureLoader();
+
+  // load a resource
+  loader.load(
+    // resource URL
+    "<%= asset_path('earth.jpg') %>",
+    // Function when resource is loaded
+    function ( texture ) {
+      // do something with the texture
+      
+      var material = new THREE.MeshPhongMaterial( {
+        map: texture
+       });
+      var sphere = new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+          radius,
+          segments,
+          rings),
+
+        material);
+      return sphere;
+    },
+    // Function called when download progresses
+    function ( xhr ) {
+      console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+    },
+    // Function called when download errors
+    function ( xhr ) {
+      console.log( 'An error happened' );
+    }
+  );
+};

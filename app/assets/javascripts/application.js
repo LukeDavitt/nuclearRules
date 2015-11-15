@@ -15,4 +15,5 @@
 //= bootstrap-material-design
 //= require three.js/build/three.min.js
 //= require_tree ../../../vendor/assets/bower_components/three.js/examples/.
+//= require molecule.js.erb
 //= require_tree .

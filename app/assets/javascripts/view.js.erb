@@ -1,0 +1,72 @@
+"use strict";
+
+var scene, camera, renderer;
+var geometry, material, mesh, group;
+
+window.onload = function(){
+    window.document.body.onload = startThreeJs(); // note removed parentheses
+};
+
+var startThreeJs = function(){
+    init();
+    animate();
+};
+
+function init() {
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera.position.z = 1000;
+
+    //geometry = new THREE.BoxGeometry( 200, 200, 200 );
+    //material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+    //mesh = new THREE.Mesh( geometry, material );
+    geometry   = new THREE.SphereGeometry(100, 640, 640);
+    material  = new THREE.MeshPhongMaterial();
+    //material.map    = THREE.ImageUtils.loadTexture("<%= asset_path('earth.jpg') %>");
+    mesh = new THREE.Mesh(geometry, material);
+    
+    group = new THREE.Group();
+
+    scene.add(group);
+
+    var loader = new THREE.TextureLoader();
+                loader.load( "<%= asset_path('earth.jpg') %>", function ( texture ) {
+
+                    var geometry = new THREE.SphereGeometry( 175, 20, 20 );
+
+                    var material = new THREE.MeshPhongMaterial( { map: texture } );
+                    mesh = new THREE.Mesh( geometry, material );
+                    group.add( mesh );
+
+                } );
+
+    var pointLight =
+      new THREE.PointLight(0xFFFFFF);
+
+    // set its position
+    pointLight.position.x = 1000;
+    pointLight.position.y = 1000;
+    pointLight.position.z = 1000;
+
+    // add to the scene
+    scene.add(pointLight);
+    renderer = new THREE.WebGLRenderer({ antialiasing: true });
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( 0xf8dc86 );
+    window.document.body.appendChild( renderer.domElement );
+
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+
+    //mesh.rotation.x += 0.01;
+    mesh.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+
+}
