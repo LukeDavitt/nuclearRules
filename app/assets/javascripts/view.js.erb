@@ -1,7 +1,7 @@
 "use strict";
 
 var scene, camera, renderer;
-var geometry, material, mesh, group, pointLight, lightDiff = 2;
+var geometry, material, mesh, group, pointLight, lightDiff = 2, planetGeometry, planetMaterial, planetMesh, planet;
 
 window.onload = function(){
     window.document.body.onload = startThreeJs(); // note removed parentheses
@@ -34,6 +34,14 @@ function init() {
 
                 } );
 
+    planetGeometry = new THREE.SphereGeometry(20);
+        planetMaterial = new THREE.MeshBasicMaterial({ color:0x86a2f8 });
+        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
+        planet = new THREE.Object3D();
+        planet.add(planetMesh);
+        planetMesh.position.x = 450;
+        scene.add( planet );
+
     var light = new THREE.AmbientLight( 0xe5e5e5 );
     scene.add(light);
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
@@ -47,6 +55,7 @@ function animate() {
 
     requestAnimationFrame( animate );
     if(mesh)mesh.rotation.y += 0.01;
+    planet.rotation.y += 0.01;
     renderer.render( scene, camera );
 
 }
