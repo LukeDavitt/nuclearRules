@@ -1,7 +1,7 @@
 "use strict";
 
 var scene, camera, renderer;
-var geometry, material, mesh, group;
+var geometry, material, mesh, group, pointLight, lightDiff = 2;
 
 window.onload = function(){
     window.document.body.onload = startThreeJs(); // note removed parentheses
@@ -43,16 +43,8 @@ function init() {
 
                 } );
 
-    var pointLight =
-      new THREE.PointLight(0xFFFFFF);
-
-    // set its position
-    pointLight.position.x = 1000;
-    pointLight.position.y = 1000;
-    pointLight.position.z = 1000;
-
-    // add to the scene
-    scene.add(pointLight);
+    var light = new THREE.AmbientLight( 0xe5e5e5 );
+    scene.add(light);
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor( 0xf8dc86 );
@@ -63,10 +55,7 @@ function init() {
 function animate() {
 
     requestAnimationFrame( animate );
-
-    //mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.01;
-
     renderer.render( scene, camera );
 
 }
