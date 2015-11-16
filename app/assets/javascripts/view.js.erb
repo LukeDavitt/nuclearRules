@@ -9,7 +9,6 @@ window.onload = function(){
 };
 
 var startThreeJs = function(){
-    threeWindow = document.getElementById("three-js-window");
     init();
     animate();    
 };
@@ -46,7 +45,6 @@ function init() {
     
     scene.add( electron );
     
-
     electronGeometry = new THREE.SphereGeometry(20);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
@@ -90,9 +88,9 @@ function init() {
     scene.add(light);
 
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
-    renderer.setSize( 500, 375 );
+    renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor( 0xf8dc86 );
-    threeWindow.appendChild( renderer.domElement );
+    window.document.body.appendChild( renderer.domElement );
 
 }
 
