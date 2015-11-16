@@ -1,8 +1,14 @@
 //= require_self
 //= require_directory .
- body {
-            /* set margin to 0 and overflow to hidden, to go fullscreen */
-            margin: 0;
-            overflow: hidden;
-        }
+ 
 
+ #three-js-window{
+  width:500px;
+  height:375px;
+  margin:auto;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0px;
+ }

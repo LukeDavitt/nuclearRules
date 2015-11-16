@@ -1,6 +1,6 @@
 "use strict";
 
-var scene, camera, renderer;
+var scene, camera, renderer, threeWindow;
 var geometry, axis, axis2, axis3, material, mesh, group, pointLight, radIncrement = Math.PI/300, rad = 0, electronGeometry, electronMaterial, electronMesh, electron;
 var electron2, electron3, electron4, electron5, ringmaterial, ringgeometry, ringmesh, ringObject1, ringObject2;
 
@@ -9,8 +9,9 @@ window.onload = function(){
 };
 
 var startThreeJs = function(){
+    threeWindow = document.getElementById("three-js-window");
     init();
-    animate();
+    animate();    
 };
 
 function init() {
@@ -74,7 +75,7 @@ function init() {
         scene.add( electron4 );
 
     electronGeometry = new THREE.SphereGeometry(20);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0xff0000 });
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0x64B98F});
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron5 = new THREE.Object3D();
         electron5.add(electronMesh);
@@ -89,9 +90,9 @@ function init() {
     scene.add(light);
 
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( 500, 375 );
     renderer.setClearColor( 0xf8dc86 );
-    window.document.body.appendChild( renderer.domElement );
+    threeWindow.appendChild( renderer.domElement );
 
 }
 
