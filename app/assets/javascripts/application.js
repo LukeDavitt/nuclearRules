@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= bootstrap-material-design
 //= require three.js/build/three.min.js
 //= require_tree ../../../vendor/assets/bower_components/three.js/examples/.
