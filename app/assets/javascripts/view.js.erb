@@ -1,8 +1,8 @@
 "use strict";
 
 var scene, camera, renderer;
-var geometry, axis, axis2, axis3, material, mesh, group, pointLight, radIncrement = 0.05, rad = 0, electronGeometry, electronMaterial, electronMesh, electron;
-var electron2, electron3, electron4, electron5;
+var geometry, axis, axis2, axis3, material, mesh, group, pointLight, radIncrement = Math.PI/300, rad = 0, electronGeometry, electronMaterial, electronMesh, electron;
+var electron2, electron3, electron4, electron5, ringmaterial, ringgeometry, ringmesh, ringObject1, ringObject2;
 
 window.onload = function(){
     window.document.body.onload = startThreeJs(); // note removed parentheses
@@ -40,25 +40,26 @@ function init() {
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron = new THREE.Object3D();
         electron.add(electronMesh);
-        //electronMesh.position.x = 450;
         electronMesh.position.y = 450;
-        scene.add( electron );
+     
+    
+    scene.add( electron );
+    
 
     electronGeometry = new THREE.SphereGeometry(20);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron2 = new THREE.Object3D();
         electron2.add(electronMesh);
-        //electronMesh.position.x = 450;
         electronMesh.position.x = 450;
-        scene.add( electron2 );
+    
+    scene.add( electron2 );
     
     electronGeometry = new THREE.SphereGeometry(20);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron3 = new THREE.Object3D();
         electron3.add(electronMesh);
-        //electronMesh.position.x = 450;
         electronMesh.position.z = 450;
         scene.add( electron3 );
 
@@ -69,7 +70,7 @@ function init() {
         electron4.add(electronMesh);
         electronMesh.position.y = 0;
         electronMesh.position.x = 0;
-        electronMesh.position.z = 450;
+        electronMesh.position.z = 440;
         scene.add( electron4 );
 
     electronGeometry = new THREE.SphereGeometry(20);
@@ -79,14 +80,14 @@ function init() {
         electron5.add(electronMesh);
         electronMesh.position.y = 0;
         electronMesh.position.x = 0;
-        electronMesh.position.z = 450;
+        electronMesh.position.z = -450;
         scene.add( electron5 );
-
 
     axis = new THREE.Vector3( 1, 1, 0);
     axis2 = new THREE.Vector3( 1, -1, 0);
     var light = new THREE.AmbientLight( 0xe5e5e5 );
     scene.add(light);
+
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor( 0xf8dc86 );
@@ -98,11 +99,11 @@ function animate() {
 
     requestAnimationFrame( animate );
      if(mesh)mesh.rotation.y += 0.01;
-     electron.rotation.z -= 0.02;
-     electron2.rotation.y += 0.02;
-     electron3.rotation.x += 0.02;
-     electron4.rotateOnAxis(axis, 0.012);
-     electron5.rotateOnAxis(axis2, 0.01);
+     electron.rotation.z -= Math.PI/200;
+     electron2.rotation.y += Math.PI/250;
+     electron3.rotation.x -= Math.PI/225;
+     electron4.rotateOnAxis(axis, Math.PI/300);
+     electron5.rotateOnAxis(axis2, Math.PI/275);
      renderer.render( scene, camera );
 
 }
