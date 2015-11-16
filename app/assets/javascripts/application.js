@@ -14,5 +14,10 @@
 //= bootstrap-material-design
 //= require three.js/build/three.min.js
 //= require_tree ../../../vendor/assets/bower_components/three.js/examples/.
-//= require molecule.js.erb
+//= require angular
+//= require angular-animate
+//= require angular-aria
+//= require angular-material
+//= require angular-ui-router
+//= require angular-rails-templates
 //= require_tree .

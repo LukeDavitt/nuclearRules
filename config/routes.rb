@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root to: 'application#home'
+  root to: 'application#angular'
 end

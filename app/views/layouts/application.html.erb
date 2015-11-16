@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NuclearRules</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<div id="three-js-window">
-</div>
-
-</body>
+  <head>
+    <title>NuclearRules</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body ng-app="nuclearRules">
+      <ui-view></ui-view>
+      <div id="three-js-window"></div>
+  </body>
 </html>
