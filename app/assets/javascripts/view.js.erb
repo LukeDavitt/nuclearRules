@@ -1,8 +1,8 @@
 "use strict";
 
 var scene, camera, renderer;
-var geometry, axis, material, mesh, group, pointLight, radIncrement = 0.05, rad = 0, planetGeometry, planetMaterial, planetMesh, planet;
-var planet2, planet3, planet4;
+var geometry, axis, axis2, axis3, material, mesh, group, pointLight, radIncrement = 0.05, rad = 0, electronGeometry, electronMaterial, electronMesh, electron;
+var electron2, electron3, electron4, electron5;
 
 window.onload = function(){
     window.document.body.onload = startThreeJs(); // note removed parentheses
@@ -35,33 +35,56 @@ function init() {
 
                 } );
 
-    planetGeometry = new THREE.SphereGeometry(20);
-        planetMaterial = new THREE.MeshBasicMaterial({ color:0x86a2f8 });
-        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
-        planet = new THREE.Object3D();
-        planet.add(planetMesh);
-        //planetMesh.position.x = 450;
-        planetMesh.position.y = 450;
-        scene.add( planet );
+    electronGeometry = new THREE.SphereGeometry(20);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0x86a2f8 });
+        electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
+        electron = new THREE.Object3D();
+        electron.add(electronMesh);
+        //electronMesh.position.x = 450;
+        electronMesh.position.y = 450;
+        scene.add( electron );
 
-    planetGeometry = new THREE.SphereGeometry(20);
-        planetMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
-        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
-        planet2 = new THREE.Object3D();
-        planet2.add(planetMesh);
-        //planetMesh.position.x = 450;
-        planetMesh.position.x = 450;
-        scene.add( planet2 );
+    electronGeometry = new THREE.SphereGeometry(20);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
+        electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
+        electron2 = new THREE.Object3D();
+        electron2.add(electronMesh);
+        //electronMesh.position.x = 450;
+        electronMesh.position.x = 450;
+        scene.add( electron2 );
     
-    planetGeometry = new THREE.SphereGeometry(20);
-        planetMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
-        planetMesh = new THREE.Mesh(planetGeometry, planetMaterial );
-        planet3 = new THREE.Object3D();
-        planet3.add(planetMesh);
-        //planetMesh.position.x = 450;
-        planetMesh.position.z = 450;
-        scene.add( planet3 );
+    electronGeometry = new THREE.SphereGeometry(20);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
+        electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
+        electron3 = new THREE.Object3D();
+        electron3.add(electronMesh);
+        //electronMesh.position.x = 450;
+        electronMesh.position.z = 450;
+        scene.add( electron3 );
 
+    electronGeometry = new THREE.SphereGeometry(20);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xdc86f8 });
+        electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
+        electron4 = new THREE.Object3D();
+        electron4.add(electronMesh);
+        electronMesh.position.y = 0;
+        electronMesh.position.x = 0;
+        electronMesh.position.z = 450;
+        scene.add( electron4 );
+
+    electronGeometry = new THREE.SphereGeometry(20);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xff0000 });
+        electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
+        electron5 = new THREE.Object3D();
+        electron5.add(electronMesh);
+        electronMesh.position.y = 0;
+        electronMesh.position.x = 0;
+        electronMesh.position.z = 450;
+        scene.add( electron5 );
+
+
+    axis = new THREE.Vector3( 1, 1, 0);
+    axis2 = new THREE.Vector3( 1, -1, 0);
     var light = new THREE.AmbientLight( 0xe5e5e5 );
     scene.add(light);
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
@@ -74,20 +97,12 @@ function init() {
 function animate() {
 
     requestAnimationFrame( animate );
-    if(mesh)mesh.rotation.y += 0.01;
-    //var timer = Date.now() * 0.001;
-
-    // planet.position.x = Math.cos( timer ) * 200;
-    // planet.position.z = Math.sin( timer ) * 200;
-    // planet.rotation.y += (Math.PI * 45 / 180) * 0.02;
-    // planet.rotation.x += (Math.PI * 45 / 180) * 0.02;
-    // planet.rotation.z += (Math.PI * 45 / 180) * 0.02;     
-    // //rad += radIncrement;
-    //planet.rotation.z += 0.001;
-    planet.rotation.z -= 0.02;
-    planet2.rotation.y += 0.02;
-    planet3.rotation.x += 0.02;
-
-    renderer.render( scene, camera );
+     if(mesh)mesh.rotation.y += 0.01;
+     electron.rotation.z -= 0.02;
+     electron2.rotation.y += 0.02;
+     electron3.rotation.x += 0.02;
+     electron4.rotateOnAxis(axis, 0.012);
+     electron5.rotateOnAxis(axis2, 0.01);
+     renderer.render( scene, camera );
 
 }
