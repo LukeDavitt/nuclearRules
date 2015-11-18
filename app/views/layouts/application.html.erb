@@ -6,7 +6,21 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body ng-app="nuclearRules">
+  <body>
+    <div id="background">
+    </div>
+    <div ng-app="nuclearRules">
+      <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+        <button class="c-menu__close">&larr; Close Menu</button>
+        <ul class="c-menu__items">
+          <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+          <li class="c-menu__item"><a href="#" class="c-menu__link">Benefits</a></li>
+          <li class="c-menu__item"><a href="#" class="c-menu__link">Waste</a></li>
+          <li class="c-menu__item"><a href="#" class="c-menu__link">History</a></li>
+          <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+        </ul>
+      </nav><!-- /c-menu slide-left -->
       <ui-view></ui-view>
+    </div>
   </body>
 </html>

@@ -7,12 +7,9 @@ body{
   overflow:hidden;
 }
 
-canvas{
+#background{
   position:absolute;
-  z-index:0;
+  z-index:-10;
 }
 
-ui-view{
-  position:absolute;
-  z-index:100;
-}
+

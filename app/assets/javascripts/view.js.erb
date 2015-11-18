@@ -90,7 +90,7 @@ function init() {
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor( 0xf8dc86 );
-    window.document.body.appendChild( renderer.domElement );
+    document.getElementById("background").appendChild( renderer.domElement );
 
 }
 
