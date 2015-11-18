@@ -46,7 +46,7 @@ function init() {
     scene.add( electron );
     
     electronGeometry = new THREE.SphereGeometry(5);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xffffff });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron2 = new THREE.Object3D();
         electron2.add(electronMesh);
@@ -55,7 +55,7 @@ function init() {
     scene.add( electron2 );
     
     electronGeometry = new THREE.SphereGeometry(5);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xffffff });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron3 = new THREE.Object3D();
         electron3.add(electronMesh);
@@ -63,7 +63,7 @@ function init() {
         scene.add( electron3 );
 
     electronGeometry = new THREE.SphereGeometry(5);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0xdc86f8 });
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xffffff });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron4 = new THREE.Object3D();
         electron4.add(electronMesh);
@@ -73,7 +73,7 @@ function init() {
         scene.add( electron4 );
 
     electronGeometry = new THREE.SphereGeometry(5);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0x64B98F});
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xffffff});
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron5 = new THREE.Object3D();
         electron5.add(electronMesh);
@@ -99,7 +99,7 @@ function animate() {
     requestAnimationFrame( animate );
      if(mesh)mesh.rotation.y += 0.01;
      electron.rotation.z -= Math.PI/200;
-     electron2.rotation.y += Math.PI/250;
+     electron2.rotation.y -= Math.PI/250;
      electron3.rotation.x -= Math.PI/225;
      electron4.rotateOnAxis(axis, Math.PI/300);
      electron5.rotateOnAxis(axis2, Math.PI/275);
