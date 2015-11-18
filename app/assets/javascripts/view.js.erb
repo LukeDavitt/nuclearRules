@@ -27,7 +27,7 @@ function init() {
     var loader = new THREE.TextureLoader();
                 loader.load( "<%= asset_path('earth.jpg') %>", function ( texture ) {
 
-                    geometry = new THREE.SphereGeometry( 175, 20, 20 );
+                    geometry = new THREE.SphereGeometry( 80, 20, 20 );
 
                     material = new THREE.MeshPhongMaterial( { map: texture } );
                     mesh = new THREE.Mesh( geometry, material );
@@ -35,51 +35,51 @@ function init() {
 
                 } );
 
-    electronGeometry = new THREE.SphereGeometry(20);
-        electronMaterial = new THREE.MeshBasicMaterial({ color:0x86a2f8 });
+    electronGeometry = new THREE.SphereGeometry(5);
+        electronMaterial = new THREE.MeshBasicMaterial({ color:0xffffff });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron = new THREE.Object3D();
         electron.add(electronMesh);
-        electronMesh.position.y = 450;
+        electronMesh.position.y = 270;
      
     
     scene.add( electron );
     
-    electronGeometry = new THREE.SphereGeometry(20);
+    electronGeometry = new THREE.SphereGeometry(5);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xf8a386 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron2 = new THREE.Object3D();
         electron2.add(electronMesh);
-        electronMesh.position.x = 450;
+        electronMesh.position.x = 250;
     
     scene.add( electron2 );
     
-    electronGeometry = new THREE.SphereGeometry(20);
+    electronGeometry = new THREE.SphereGeometry(5);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xdbf886 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron3 = new THREE.Object3D();
         electron3.add(electronMesh);
-        electronMesh.position.z = 450;
+        electronMesh.position.z = 250;
         scene.add( electron3 );
 
-    electronGeometry = new THREE.SphereGeometry(20);
+    electronGeometry = new THREE.SphereGeometry(5);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0xdc86f8 });
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron4 = new THREE.Object3D();
         electron4.add(electronMesh);
         electronMesh.position.y = 0;
         electronMesh.position.x = 0;
-        electronMesh.position.z = 440;
+        electronMesh.position.z = 240;
         scene.add( electron4 );
 
-    electronGeometry = new THREE.SphereGeometry(20);
+    electronGeometry = new THREE.SphereGeometry(5);
         electronMaterial = new THREE.MeshBasicMaterial({ color:0x64B98F});
         electronMesh = new THREE.Mesh(electronGeometry, electronMaterial );
         electron5 = new THREE.Object3D();
         electron5.add(electronMesh);
         electronMesh.position.y = 0;
         electronMesh.position.x = 0;
-        electronMesh.position.z = 440;
+        electronMesh.position.z = 260;
         scene.add( electron5 );
 
     axis = new THREE.Vector3( 1, 1, 0);
@@ -89,7 +89,7 @@ function init() {
 
     renderer = new THREE.WebGLRenderer({ antialiasing: true });
     renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.setClearColor( 0xf8dc86 );
+    renderer.setClearColor( 0x948450 );
     document.getElementById("background").appendChild( renderer.domElement );
 
 }

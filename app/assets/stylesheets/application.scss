@@ -1,10 +1,14 @@
 //= require_self
 //= require_directory .
  
-
+html{
+  height:100%;
+  font-family: 'Michroma', sans-serif;
+}
 body{
   margin:0;
   overflow:hidden;
+  height:100%;
 }
 
 #background{
@@ -12,4 +16,23 @@ body{
   z-index:-10;
 }
 
+#menu{
+  width:200px;
+  height:100%;
+  .menu-items{
+    margin-top: 0px;
+    list-style: none;
+    height: 100%;
+    background: red;
+    font-size: 25px;
+    padding-top: 50px;
+    padding-left: 25px;
+    a{
+      text-decoration: none;
+    }
+  }
+}
 
+.nuclear-rules{
+  height:100%;
+}
